@@ -12,6 +12,7 @@
     "media_control",
     "scenario_control",
     "brightness_control",
-    "timer_alarm"
+    "timer_alarm",
+    "note_taker"
   ]
 }
