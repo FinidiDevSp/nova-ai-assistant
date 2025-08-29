@@ -8,6 +8,9 @@ from typing import List, Type
 class BasePlugin:
     """Base class for all plugins."""
 
+    def __init__(self, config: dict | None = None) -> None:
+        self.config = config or {}
+
     def can_handle(self, text: str) -> bool:
         """Return True if plugin can handle the provided command."""
         raise NotImplementedError
@@ -17,11 +20,14 @@ class BasePlugin:
         raise NotImplementedError
 
 
-def load_plugins(plugin_names: List[str]) -> List[BasePlugin]:
+def load_plugins(plugin_names: List[str], config: dict | None = None) -> List[BasePlugin]:
     """Dynamically import and instantiate plugin classes."""
     plugins: List[BasePlugin] = []
     for name in plugin_names:
         module = importlib.import_module(f"{__name__}.{name}")
         plugin_cls: Type[BasePlugin] = getattr(module, "Plugin")
-        plugins.append(plugin_cls())
+        try:
+            plugins.append(plugin_cls(config))
+        except TypeError:
+            plugins.append(plugin_cls())
     return plugins

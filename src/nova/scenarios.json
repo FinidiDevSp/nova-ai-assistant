@@ -1,0 +1,13 @@
+{
+  "trabajo": {
+    "actions": [
+      {"type": "open_program", "command": "code"},
+      {"type": "open_urls", "urls": ["https://www.google.com", "https://github.com"]}
+    ]
+  },
+  "silencio": {
+    "actions": [
+      {"type": "run", "command": "pactl set-sink-mute @DEFAULT_SINK@ 1"}
+    ]
+  }
+}
