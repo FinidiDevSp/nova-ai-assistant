@@ -11,6 +11,7 @@ proyecto estilo **J.A.R.V.I.S.**
    pip install -r requirements.txt
    ```
 2. Asegúrate de que tu sistema dispone de un micrófono accesible por Python.
+3. Para el plugin de brillo instala `brightnessctl` o `xbacklight`.
 
 ## Configuración
 
@@ -31,7 +32,8 @@ configurar un fichero de memoria persistente y los escenarios disponibles.
     "system_control",
     "volume_control",
     "media_control",
-    "scenario_control"
+    "scenario_control",
+    "brightness_control"
   ]
 }
 ```
@@ -69,6 +71,10 @@ Los escenarios permiten ejecutar varias acciones predefinidas, por ejemplo:
 - **Control de volumen**
   - "NOVA sube el volumen"
   - "NOVA baja el volumen"
+- **Control de brillo**
+  - "NOVA sube el brillo"
+  - "NOVA baja el brillo"
+  - "NOVA brillo al 50%"
 - **Control multimedia**
   - "NOVA reproduce"
   - "NOVA pausa la música"
