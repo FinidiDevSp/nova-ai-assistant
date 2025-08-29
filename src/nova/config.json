@@ -9,6 +9,7 @@
     "open_browser",
     "system_control",
     "volume_control",
+    "media_control",
     "scenario_control"
   ]
 }

@@ -30,6 +30,7 @@ configurar un fichero de memoria persistente y los escenarios disponibles.
     "open_browser",
     "system_control",
     "volume_control",
+    "media_control",
     "scenario_control"
   ]
 }
@@ -68,6 +69,11 @@ Los escenarios permiten ejecutar varias acciones predefinidas, por ejemplo:
 - **Control de volumen**
   - "NOVA sube el volumen"
   - "NOVA baja el volumen"
+- **Control multimedia**
+  - "NOVA reproduce"
+  - "NOVA pausa la música"
+  - "NOVA siguiente canción"
+  - "NOVA canción anterior"
 
 ## Extensión mediante plugins
 
