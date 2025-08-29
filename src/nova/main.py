@@ -65,6 +65,7 @@ def listen_loop(config: dict) -> None:
             audio = recognizer.listen(source)
             try:
                 text = recognizer.recognize_google(audio, language="es-ES").lower()
+                print(f"Texto reconocido: {text}")
                 if deactivation_word in text:
                     deactivate()
                     continue
@@ -90,7 +91,8 @@ def listen_loop(config: dict) -> None:
                         print(response)
                         if tts_plugin:
                             tts_plugin.speak(response)
-            except sr.UnknownValueError:
+            except sr.UnknownValueError as e:
+                print(f"No se entendió el audio: {e}")
                 continue
 
 

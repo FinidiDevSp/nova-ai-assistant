@@ -1,3 +1,5 @@
 SpeechRecognition
 keyboard
 pyttsx3
+networkx
+pycaw

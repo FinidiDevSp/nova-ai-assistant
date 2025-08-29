@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "role": "user",
+    "text": "hola"
+  },
+  {
+    "role": "assistant",
+    "text": "No se encontró un plugin para esa orden"
+  },
+  {
+    "role": "user",
+    "text": "sube el volumen"
+  },
+  {
+    "role": "user",
+    "text": "sube el volumen"
+  },
+  {
+    "role": "assistant",
+    "text": "Subiendo volumen"
+  },
+  {
+    "role": "user",
+    "text": "silencia el"
+  },
+  {
+    "role": "assistant",
+    "text": "No se encontró un plugin para esa orden"
+  },
+  {
+    "role": "user",
+    "text": "silencia el volumen"
+  },
+  {
+    "role": "assistant",
+    "text": "Silenciando volumen"
+  },
+  {
+    "role": "user",
+    "text": "activa el volumen"
+  },
+  {
+    "role": "assistant",
+    "text": "Activando volumen"
+  },
+  {
+    "role": "user",
+    "text": "pon una alarma"
+  },
+  {
+    "role": "assistant",
+    "text": "No se especificó un tiempo para el temporizador"
+  },
+  {
+    "role": "user",
+    "text": "pon una alarma de"
+  },
+  {
+    "role": "assistant",
+    "text": "No se especificó un tiempo para el temporizador"
+  }
+]
