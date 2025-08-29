@@ -1,0 +1,8 @@
+{
+  "activation_word": "NOVA",
+  "plugins": [
+    "open_browser",
+    "system_control",
+    "volume_control"
+  ]
+}
