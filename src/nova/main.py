@@ -33,6 +33,7 @@ def listen_loop(config: dict) -> None:
 
     recognizer = sr.Recognizer()
     plugins = load_plugins(config.get("plugins", []), config)
+    tts_plugin = next((p for p in plugins if hasattr(p, "speak")), None)
     activation_word = config.get("activation_word", "NOVA").lower()
     deactivation_word = config.get("deactivation_word", "silencio").lower()
     memory_path = Path(__file__).resolve().parent / config.get("memory_file", "memory.json")
@@ -71,15 +72,21 @@ def listen_loop(config: dict) -> None:
                     print(f"Comando detectado: {command}")
                     memory.add("user", command)
                     for plugin in plugins:
+                        if plugin is tts_plugin:
+                            continue
                         if plugin.can_handle(command):
                             response = plugin.handle(command)
                             memory.add("assistant", response)
                             print(response)
+                            if tts_plugin:
+                                tts_plugin.speak(response)
                             break
                     else:
                         response = "No se encontró un plugin para esa orden"
                         memory.add("assistant", response)
                         print(response)
+                        if tts_plugin:
+                            tts_plugin.speak(response)
             except sr.UnknownValueError:
                 continue
 

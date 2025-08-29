@@ -10,8 +10,12 @@ proyecto estilo **J.A.R.V.I.S.**
    ```bash
    pip install -r requirements.txt
    ```
-2. Asegúrate de que tu sistema dispone de un micrófono accesible por Python.
-3. Para el plugin de brillo instala `brightnessctl` o `xbacklight`.
+2. Para habilitar la síntesis de voz instala `pyttsx3`:
+   ```bash
+   pip install pyttsx3
+   ```
+3. Asegúrate de que tu sistema dispone de un micrófono accesible por Python.
+4. Para el plugin de brillo instala `brightnessctl` o `xbacklight`.
 
 ## Configuración
 
@@ -36,7 +40,8 @@ configurar un fichero de memoria persistente y los escenarios disponibles.
     "brightness_control",
     "timer_alarm",
     "note_taker",
-    "calculator"
+    "calculator",
+    "text_to_speech"
   ]
 }
 ```
