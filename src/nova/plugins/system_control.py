@@ -9,6 +9,9 @@ from . import BasePlugin
 class Plugin(BasePlugin):
     """Handle power and session control commands."""
 
+    def __init__(self, config: dict | None = None) -> None:
+        super().__init__(config)
+
     def can_handle(self, text: str) -> bool:
         text = text.lower()
         keywords = [

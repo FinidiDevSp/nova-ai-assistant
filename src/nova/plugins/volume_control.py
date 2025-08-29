@@ -9,6 +9,9 @@ from . import BasePlugin
 class Plugin(BasePlugin):
     """Adjust the system volume using pactl."""
 
+    def __init__(self, config: dict | None = None) -> None:
+        super().__init__(config)
+
     def can_handle(self, text: str) -> bool:
         text = text.lower()
         return "volumen" in text or "volume" in text

@@ -1,8 +1,14 @@
 {
   "activation_word": "NOVA",
+  "deactivation_word": "silencio",
+  "deactivate_hotkey": "ctrl+shift+s",
+  "activate_hotkey": "ctrl+shift+l",
+  "memory_file": "memory.json",
+  "scenarios_config": "scenarios.json",
   "plugins": [
     "open_browser",
     "system_control",
-    "volume_control"
+    "volume_control",
+    "scenario_control"
   ]
 }
