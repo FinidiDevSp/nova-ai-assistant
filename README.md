@@ -19,9 +19,10 @@ proyecto estilo **J.A.R.V.I.S.**
 
 ## Configuración
 
-El archivo `src/config.json` define la palabra de activación, la palabra de
-desactivación, combinaciones de teclas y los plugins a cargar. También permite
-configurar un fichero de memoria persistente y los escenarios disponibles.
+ El archivo `src/config.json` define la palabra de activación, la palabra de
+ desactivación, combinaciones de teclas y los plugins a cargar. También permite
+ ajustar la sensibilidad del micrófono, configurar un fichero de memoria
+ persistente y los escenarios disponibles.
 
 ```json
 {
@@ -29,6 +30,10 @@ configurar un fichero de memoria persistente y los escenarios disponibles.
   "deactivation_word": "silencio",
   "deactivate_hotkey": "ctrl+shift+s",
   "activate_hotkey": "ctrl+shift+l",
+  "pause_threshold": 0.8,
+  "energy_threshold": 300,
+  "dynamic_energy_threshold": true,
+  "ambient_duration": 1,
   "memory_file": "memory.json",
   "scenarios_config": "scenarios.json",
   "plugins": [
