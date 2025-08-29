@@ -35,7 +35,8 @@ configurar un fichero de memoria persistente y los escenarios disponibles.
     "scenario_control",
     "brightness_control",
     "timer_alarm",
-    "note_taker"
+    "note_taker",
+    "calculator"
   ]
 }
 ```
@@ -88,6 +89,9 @@ Los escenarios permiten ejecutar varias acciones predefinidas, por ejemplo:
 - **Toma de notas**
   - "NOVA toma nota de comprar leche"
   - "NOVA anota llamar al doctor"
+- **Calculadora**
+  - "NOVA cuánto es 2 más 2"
+  - "NOVA calcula 5 por 7"
 
 Las notas se almacenan en `notes.txt` en la raíz del proyecto.
 
