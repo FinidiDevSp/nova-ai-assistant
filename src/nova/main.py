@@ -6,7 +6,7 @@ from pathlib import Path
 
 import speech_recognition as sr
 
-from plugins import load_plugins
+from .plugins import load_plugins
 
 
 def listen_loop(activation_word: str, plugin_names):

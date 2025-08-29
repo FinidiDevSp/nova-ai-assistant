@@ -21,7 +21,7 @@ def load_plugins(plugin_names: List[str]) -> List[BasePlugin]:
     """Dynamically import and instantiate plugin classes."""
     plugins: List[BasePlugin] = []
     for name in plugin_names:
-        module = importlib.import_module(f"plugins.{name}")
+        module = importlib.import_module(f"{__name__}.{name}")
         plugin_cls: Type[BasePlugin] = getattr(module, "Plugin")
         plugins.append(plugin_cls())
     return plugins
