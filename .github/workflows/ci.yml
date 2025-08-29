@@ -1,0 +1,39 @@
+name: "CI (develop & master)"
+
+on:
+    push:
+        branches: [develop, master]
+    pull_request:
+        branches: [develop, master]
+    workflow_dispatch:
+
+jobs:
+    build-test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-python@v5
+              with:
+                  python-version: "3.11"
+
+            - name: Instalar proyecto
+              run: |
+                  python -m pip install --upgrade pip
+                  # Instala con las dependencias declaradas en tu pyproject
+                  pip install -e .
+
+            - name: Smoke test Nova CLI
+              run: |
+                  python - <<'PY'
+                  try:
+                    import importlib
+                    importlib.import_module("nova")
+                    print("Import OK")
+                  except Exception as e:
+                    print("Error importando 'nova':", e)
+                    raise
+                  PY
+
+            - name: Ayuda de CLI (opcional)
+              run: |
+                  python -m nova --help || true

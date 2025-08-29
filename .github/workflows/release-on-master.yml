@@ -1,0 +1,24 @@
+name: "Release (GitFlow: merge a master)"
+
+on:
+    push:
+        branches: [master]
+    workflow_dispatch:
+
+permissions:
+    contents: write
+    pull-requests: write
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: googleapis/release-please-action@v4
+              with:
+                  # Crea tag + GitHub Release directamente (sin PR intermedio)
+                  skip-github-pull-request: true
+                  # Usa los JSON de la raíz (config + manifest)
+                  config-file: release-please-config.json
+                  manifest-file: .release-please-manifest.json
+                  # "simple" evita tocar archivos de versión del repo
+                  release-type: simple
