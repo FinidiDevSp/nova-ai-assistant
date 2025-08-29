@@ -34,7 +34,8 @@ configurar un fichero de memoria persistente y los escenarios disponibles.
     "media_control",
     "scenario_control",
     "brightness_control",
-    "timer_alarm"
+    "timer_alarm",
+    "note_taker"
   ]
 }
 ```
@@ -84,6 +85,11 @@ Los escenarios permiten ejecutar varias acciones predefinidas, por ejemplo:
 - **Temporizadores y alarmas**
   - "NOVA temporizador de 5 minutos"
   - "NOVA pon una alarma de 10 segundos"
+- **Toma de notas**
+  - "NOVA toma nota de comprar leche"
+  - "NOVA anota llamar al doctor"
+
+Las notas se almacenan en `notes.txt` en la raíz del proyecto.
 
 ## Extensión mediante plugins
 
