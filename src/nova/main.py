@@ -57,6 +57,13 @@ def listen_loop(config: dict) -> None:
     keyboard.add_hotkey(config.get("activate_hotkey", "ctrl+shift+l"), activate)
 
     with sr.Microphone() as source:
+        # Ajustes para mejorar la captación del micrófono
+        recognizer.pause_threshold = config.get("pause_threshold", recognizer.pause_threshold)
+        recognizer.energy_threshold = config.get("energy_threshold", recognizer.energy_threshold)
+        recognizer.dynamic_energy_threshold = config.get("dynamic_energy_threshold", True)
+        recognizer.adjust_for_ambient_noise(
+            source, duration=config.get("ambient_duration", 1)
+        )
         print(f"Escuchando. Di '{activation_word}' para activar.")
         while True:
             if not listening:
@@ -93,6 +100,9 @@ def listen_loop(config: dict) -> None:
                             tts_plugin.speak(response)
             except sr.UnknownValueError as e:
                 print(f"No se entendió el audio: {e}")
+                continue
+            except sr.RequestError as e:
+                print(f"Error del servicio de reconocimiento: {e}")
                 continue
 
 
