@@ -33,7 +33,8 @@ configurar un fichero de memoria persistente y los escenarios disponibles.
     "volume_control",
     "media_control",
     "scenario_control",
-    "brightness_control"
+    "brightness_control",
+    "timer_alarm"
   ]
 }
 ```
@@ -80,6 +81,9 @@ Los escenarios permiten ejecutar varias acciones predefinidas, por ejemplo:
   - "NOVA pausa la música"
   - "NOVA siguiente canción"
   - "NOVA canción anterior"
+- **Temporizadores y alarmas**
+  - "NOVA temporizador de 5 minutos"
+  - "NOVA pon una alarma de 10 segundos"
 
 ## Extensión mediante plugins
 
