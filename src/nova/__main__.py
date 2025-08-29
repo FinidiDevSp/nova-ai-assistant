@@ -1,7 +1,10 @@
 """Command line interface for the Nova assistant."""
 from __future__ import annotations
 
-from .main import main
+try:
+    from .main import main
+except ImportError:  # pragma: no cover
+    from main import main
 
 
 def run() -> None:

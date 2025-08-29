@@ -8,7 +8,10 @@ from pathlib import Path
 import keyboard
 import speech_recognition as sr
 
-from .plugins import load_plugins
+try:
+    from .plugins import load_plugins
+except ImportError:  # pragma: no cover
+    from plugins import load_plugins
 
 
 class Memory:
