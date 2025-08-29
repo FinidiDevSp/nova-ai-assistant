@@ -35,7 +35,8 @@ configurar un fichero de memoria persistente y los escenarios disponibles.
     "scenario_control",
     "brightness_control",
     "timer_alarm",
-    "note_taker"
+    "note_taker",
+    "file_manager"
   ]
 }
 ```
@@ -88,6 +89,11 @@ Los escenarios permiten ejecutar varias acciones predefinidas, por ejemplo:
 - **Toma de notas**
   - "NOVA toma nota de comprar leche"
   - "NOVA anota llamar al doctor"
+- **Gestión de archivos**
+  - "NOVA crear carpeta proyectos"
+  - "NOVA lista archivos /tmp"
+  - "NOVA borra archivo demo.txt"
+  - *Asegúrate de tener permisos suficientes y revisa las rutas antes de ejecutar estas acciones.*
 
 Las notas se almacenan en `notes.txt` en la raíz del proyecto.
 

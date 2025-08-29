@@ -13,6 +13,7 @@
     "scenario_control",
     "brightness_control",
     "timer_alarm",
-    "note_taker"
+    "note_taker",
+    "file_manager"
   ]
 }
