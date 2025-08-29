@@ -1,0 +1,55 @@
+name: "Back-merge master -> develop"
+
+on:
+    push:
+        branches: [master]
+    workflow_dispatch:
+
+permissions:
+    contents: write
+    pull-requests: write
+
+jobs:
+    backmerge:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout develop
+              uses: actions/checkout@v4
+              with:
+                  ref: develop
+                  fetch-depth: 0
+
+            - name: Fetch master
+              run: git fetch origin master:origin/master
+
+            - name: Merge master into develop (no commit)
+              run: |
+                  set -e
+                  git config user.name  "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  # Prepara el merge sin crear commit aún (para poder abrir PR)
+                  git merge --no-ff --no-commit origin/master || true
+
+            - name: Detectar cambios
+              id: diffcheck
+              run: |
+                  if git diff --staged --quiet && git diff --quiet; then
+                    echo "changed=false" >> $GITHUB_OUTPUT
+                  else
+                    echo "changed=true" >> $GITHUB_OUTPUT
+                  fi
+
+            - name: Crear/actualizar PR de back-merge
+              if: steps.diffcheck.outputs.changed == 'true'
+              uses: peter-evans/create-pull-request@v7
+              with:
+                  branch: chore/backmerge-master-into-develop
+                  base: develop
+                  title: "chore(backmerge): master -> develop"
+                  body: "Back-merge automático tras release en master"
+                  commit-message: "chore(backmerge): master -> develop"
+                  labels: backmerge, chore
+
+            - name: Sin cambios que backmergear
+              if: steps.diffcheck.outputs.changed != 'true'
+              run: echo "Develop ya estaba alineada con master."
